@@ -11,23 +11,34 @@ def calculator():
     while not finished:
         user_input = input("Enter an integer or 'compute': ")
         
+        # if user_input == "compute":
+        #     try:
+        #         # if len(numbers) == 0:
+        #             # raise ValueError("cannot compute average of an empty collection")
+        #         # else:
+        #         print_average(numbers)
+        #         finished = True
+        #     except ZeroDivisionError:
+        #         print("You must enter at least one number before calculating an average")
+            
+        # else:
+        #     try:
+        #         number = int(user_input)
+        #     except ValueError:
+        #         print("Invalid input. Input must be an integer or 'compute'")
+        #         continue
         if user_input == "compute":
-            try:
-                # if len(numbers) == 0:
-                    # raise ValueError("cannot compute average of an empty collection")
-                # else:
+            if len(numbers) == 0:
+                raise ValueError("cannot compute average of an empty collection")
+            
+            else:
                 print_average(numbers)
                 finished = True
-            except ZeroDivisionError:
-                print("You must enter at least one number before calculating an average")
+        elif not isinstance(user_input,int):
+                raise ValueError("Invalid input. Input must be an integer or 'compute'")
             
         else:
-            try:
-                number = int(user_input)
-            except ValueError:
-                print("Invalid input. Input must be an integer or 'compute'")
-                continue
-
+            number = int(user_input)
             numbers.append(number)
 
 
